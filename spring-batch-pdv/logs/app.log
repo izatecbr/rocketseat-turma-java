@@ -1,0 +1,337 @@
+2025-05-22T19:58:39.713-03:00  INFO 1512 --- [main] c.e.demo.SpringBatchPdvApplication       : Starting SpringBatchPdvApplication using Java 22.0.1 with PID 1512 (C:\iza\spring-batch-pdv\target\classes started by gleys in C:\iza\spring-batch-pdv)
+2025-05-22T19:58:39.715-03:00  INFO 1512 --- [main] c.e.demo.SpringBatchPdvApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-05-22T19:58:40.455-03:00  INFO 1512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-22T19:58:40.485-03:00  INFO 1512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+2025-05-22T19:58:40.866-03:00  INFO 1512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-22T19:58:41.261-03:00  INFO 1512 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4a7fd0c9
+2025-05-22T19:58:41.262-03:00  INFO 1512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-22T19:58:41.557-03:00  INFO 1512 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-22T19:58:41.680-03:00  INFO 1512 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-22T19:58:41.750-03:00  INFO 1512 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-22T19:58:42.080-03:00  INFO 1512 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-22T19:58:42.146-03:00  WARN 1512 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-22T19:58:42.164-03:00  INFO 1512 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-22T19:58:43.137-03:00  INFO 1512 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22T19:58:43.196-03:00  INFO 1512 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22T19:58:43.832-03:00  INFO 1512 --- [main] c.e.demo.SpringBatchPdvApplication       : Started SpringBatchPdvApplication in 4.759 seconds (process running for 5.6)
+2025-05-22T19:58:45.094-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] launched with the following parameters: [{'execucao':'{value=1747954725021, type=class java.lang.Long, identifying=true}'}]
+2025-05-22T19:58:45.114-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2025-05-22T19:58:58.870-03:00 ERROR 1512 --- [scheduling-1] c.e.demo.config.VendaFieldSetMapper      : Erro ao mapear linha: [T02, 4, 17/05/25, 120.00, DEBITO] → numero transacao 4 -> Forma de pagamento inválida: DEBITO
+2025-05-22T19:58:58.938-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 13s822ms
+2025-05-22T19:58:58.949-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] completed with the following parameters: [{'execucao':'{value=1747954725021, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 13s846ms
+2025-05-22T19:59:00.013-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] launched with the following parameters: [{'execucao':'{value=1747954740003, type=class java.lang.Long, identifying=true}'}]
+2025-05-22T19:59:00.021-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2025-05-22T19:59:00.025-03:00 ERROR 1512 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step step1 in job importVendasJob
+
+org.springframework.batch.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:155) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.item.ChunkMonitor.open(ChunkMonitor.java:118) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.open(TaskletStep.java:287) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:227) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:153) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:408) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:127) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:307) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:155) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:146) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at com.example.demo.job.JobScheduler.executarJob(JobScheduler.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.14.6.jar:1.14.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96) ~[spring-context-6.2.6.jar:6.2.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.lang.IllegalStateException: Input resource must exist (reader is in 'strict' mode): file [C:\super-mercado\pdvs\vendas.csv]
+	at org.springframework.batch.item.file.FlatFileItemReader.doOpen(FlatFileItemReader.java:266) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:152) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	... 29 common frames omitted
+
+2025-05-22T19:59:00.029-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 6ms
+2025-05-22T19:59:00.040-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] completed with the following parameters: [{'execucao':'{value=1747954740003, type=class java.lang.Long, identifying=true}'}] and the following status: [FAILED] in 23ms
+2025-05-22T19:59:15.023-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] launched with the following parameters: [{'execucao':'{value=1747954755012, type=class java.lang.Long, identifying=true}'}]
+2025-05-22T19:59:15.028-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2025-05-22T19:59:15.030-03:00 ERROR 1512 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step step1 in job importVendasJob
+
+org.springframework.batch.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:155) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.item.ChunkMonitor.open(ChunkMonitor.java:118) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.open(TaskletStep.java:287) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:227) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:153) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:408) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:127) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:307) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:155) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:146) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at com.example.demo.job.JobScheduler.executarJob(JobScheduler.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.14.6.jar:1.14.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96) ~[spring-context-6.2.6.jar:6.2.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.lang.IllegalStateException: Input resource must exist (reader is in 'strict' mode): file [C:\super-mercado\pdvs\vendas.csv]
+	at org.springframework.batch.item.file.FlatFileItemReader.doOpen(FlatFileItemReader.java:266) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:152) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	... 29 common frames omitted
+
+2025-05-22T19:59:15.031-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 3ms
+2025-05-22T19:59:15.036-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] completed with the following parameters: [{'execucao':'{value=1747954755012, type=class java.lang.Long, identifying=true}'}] and the following status: [FAILED] in 12ms
+2025-05-22T19:59:30.022-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] launched with the following parameters: [{'execucao':'{value=1747954770004, type=class java.lang.Long, identifying=true}'}]
+2025-05-22T19:59:30.033-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2025-05-22T19:59:30.039-03:00 ERROR 1512 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step step1 in job importVendasJob
+
+org.springframework.batch.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:155) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.item.ChunkMonitor.open(ChunkMonitor.java:118) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.open(TaskletStep.java:287) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:227) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:153) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:408) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:127) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:307) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:155) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:146) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at com.example.demo.job.JobScheduler.executarJob(JobScheduler.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.14.6.jar:1.14.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96) ~[spring-context-6.2.6.jar:6.2.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.lang.IllegalStateException: Input resource must exist (reader is in 'strict' mode): file [C:\super-mercado\pdvs\vendas.csv]
+	at org.springframework.batch.item.file.FlatFileItemReader.doOpen(FlatFileItemReader.java:266) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:152) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	... 29 common frames omitted
+
+2025-05-22T19:59:30.041-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 7ms
+2025-05-22T19:59:30.055-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] completed with the following parameters: [{'execucao':'{value=1747954770004, type=class java.lang.Long, identifying=true}'}] and the following status: [FAILED] in 29ms
+2025-05-22T19:59:45.030-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] launched with the following parameters: [{'execucao':'{value=1747954785013, type=class java.lang.Long, identifying=true}'}]
+2025-05-22T19:59:45.045-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2025-05-22T19:59:45.049-03:00 ERROR 1512 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step step1 in job importVendasJob
+
+org.springframework.batch.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:155) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.item.ChunkMonitor.open(ChunkMonitor.java:118) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.open(TaskletStep.java:287) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:227) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:153) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:408) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:127) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:307) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:155) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:146) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at com.example.demo.job.JobScheduler.executarJob(JobScheduler.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.14.6.jar:1.14.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96) ~[spring-context-6.2.6.jar:6.2.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.lang.IllegalStateException: Input resource must exist (reader is in 'strict' mode): file [C:\super-mercado\pdvs\vendas.csv]
+	at org.springframework.batch.item.file.FlatFileItemReader.doOpen(FlatFileItemReader.java:266) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:152) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	... 29 common frames omitted
+
+2025-05-22T19:59:45.050-03:00  INFO 1512 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 4ms
+2025-05-22T19:59:45.063-03:00  INFO 1512 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] completed with the following parameters: [{'execucao':'{value=1747954785013, type=class java.lang.Long, identifying=true}'}] and the following status: [FAILED] in 28ms
+2025-05-22T19:59:58.619-03:00  INFO 1512 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22T19:59:58.620-03:00  INFO 1512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-22T19:59:58.622-03:00  INFO 1512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-22T20:01:19.806-03:00  INFO 25664 --- [main] c.e.demo.SpringBatchPdvApplication       : Starting SpringBatchPdvApplication using Java 22.0.1 with PID 25664 (C:\iza\spring-batch-pdv\target\classes started by gleys in C:\iza\spring-batch-pdv)
+2025-05-22T20:01:19.808-03:00  INFO 25664 --- [main] c.e.demo.SpringBatchPdvApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-05-22T20:01:20.453-03:00  INFO 25664 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-22T20:01:20.487-03:00  INFO 25664 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JPA repository interfaces.
+2025-05-22T20:01:20.880-03:00  INFO 25664 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-22T20:01:21.187-03:00  INFO 25664 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7187bac9
+2025-05-22T20:01:21.189-03:00  INFO 25664 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-22T20:01:21.543-03:00  INFO 25664 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-22T20:01:21.588-03:00  INFO 25664 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-22T20:01:21.620-03:00  INFO 25664 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-22T20:01:21.890-03:00  INFO 25664 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-22T20:01:21.933-03:00  WARN 25664 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-22T20:01:21.956-03:00  INFO 25664 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-22T20:01:22.802-03:00  INFO 25664 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22T20:01:22.853-03:00  INFO 25664 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22T20:01:23.465-03:00  INFO 25664 --- [main] c.e.demo.SpringBatchPdvApplication       : Started SpringBatchPdvApplication in 4.331 seconds (process running for 4.687)
+2025-05-22T20:01:30.076-03:00  INFO 25664 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] launched with the following parameters: [{'execucao':'{value=1747954890009, type=class java.lang.Long, identifying=true}'}]
+2025-05-22T20:01:30.106-03:00  INFO 25664 --- [scheduling-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2025-05-22T20:01:30.112-03:00 ERROR 25664 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step step1 in job importVendasJob
+
+org.springframework.batch.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:155) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.item.ChunkMonitor.open(ChunkMonitor.java:118) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.open(TaskletStep.java:287) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:227) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:153) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:408) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:127) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:307) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:155) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:146) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at com.example.demo.job.JobScheduler.executarJob(JobScheduler.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.14.6.jar:1.14.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96) ~[spring-context-6.2.6.jar:6.2.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.lang.IllegalStateException: Input resource must exist (reader is in 'strict' mode): file [C:\super-mercado\pdvs\vendas.csv]
+	at org.springframework.batch.item.file.FlatFileItemReader.doOpen(FlatFileItemReader.java:266) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:152) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	... 28 common frames omitted
+
+2025-05-22T20:01:30.115-03:00  INFO 25664 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 9ms
+2025-05-22T20:01:30.127-03:00  INFO 25664 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] completed with the following parameters: [{'execucao':'{value=1747954890009, type=class java.lang.Long, identifying=true}'}] and the following status: [FAILED] in 40ms
+2025-05-22T20:01:45.024-03:00  INFO 25664 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] launched with the following parameters: [{'execucao':'{value=1747954905011, type=class java.lang.Long, identifying=true}'}]
+2025-05-22T20:01:45.036-03:00  INFO 25664 --- [scheduling-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2025-05-22T20:01:45.040-03:00 ERROR 25664 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Encountered an error executing step step1 in job importVendasJob
+
+org.springframework.batch.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:155) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.item.ChunkMonitor.open(ChunkMonitor.java:118) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.open(TaskletStep.java:287) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:227) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:153) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:408) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:127) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:307) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:155) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:146) ~[spring-batch-core-5.2.2.jar:5.2.2]
+	at com.example.demo.job.JobScheduler.executarJob(JobScheduler.java:28) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.14.6.jar:1.14.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:85) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96) ~[spring-context-6.2.6.jar:6.2.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.lang.IllegalStateException: Input resource must exist (reader is in 'strict' mode): file [C:\super-mercado\pdvs\vendas.csv]
+	at org.springframework.batch.item.file.FlatFileItemReader.doOpen(FlatFileItemReader.java:266) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:152) ~[spring-batch-infrastructure-5.2.2.jar:5.2.2]
+	... 28 common frames omitted
+
+2025-05-22T20:01:45.040-03:00  INFO 25664 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 2ms
+2025-05-22T20:01:45.050-03:00  INFO 25664 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] completed with the following parameters: [{'execucao':'{value=1747954905011, type=class java.lang.Long, identifying=true}'}] and the following status: [FAILED] in 22ms
+2025-05-22T20:01:55.173-03:00  INFO 25664 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22T20:01:55.174-03:00  INFO 25664 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-22T20:01:55.177-03:00  INFO 25664 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-22T20:02:12.248-03:00  INFO 18968 --- [main] c.e.demo.SpringBatchPdvApplication       : Starting SpringBatchPdvApplication using Java 22.0.1 with PID 18968 (C:\iza\spring-batch-pdv\target\classes started by gleys in C:\iza\spring-batch-pdv)
+2025-05-22T20:02:12.251-03:00  INFO 18968 --- [main] c.e.demo.SpringBatchPdvApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-05-22T20:02:12.874-03:00  INFO 18968 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-22T20:02:12.905-03:00  INFO 18968 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JPA repository interfaces.
+2025-05-22T20:02:13.310-03:00  INFO 18968 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-22T20:02:13.638-03:00  INFO 18968 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7187bac9
+2025-05-22T20:02:13.640-03:00  INFO 18968 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-22T20:02:13.903-03:00  INFO 18968 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-22T20:02:13.999-03:00  INFO 18968 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-22T20:02:14.029-03:00  INFO 18968 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-22T20:02:14.299-03:00  INFO 18968 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-22T20:02:14.347-03:00  WARN 18968 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-22T20:02:14.364-03:00  INFO 18968 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-22T20:02:15.175-03:00  INFO 18968 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22T20:02:15.228-03:00  INFO 18968 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22T20:02:15.776-03:00  INFO 18968 --- [main] c.e.demo.SpringBatchPdvApplication       : Started SpringBatchPdvApplication in 4.126 seconds (process running for 4.475)
+2025-05-22T20:02:30.059-03:00  INFO 18968 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] launched with the following parameters: [{'execucao':'{value=1747954950004, type=class java.lang.Long, identifying=true}'}]
+2025-05-22T20:02:30.078-03:00  INFO 18968 --- [scheduling-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+2025-05-22T20:02:30.134-03:00  INFO 18968 --- [scheduling-1] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 54ms
+2025-05-22T20:02:30.145-03:00  INFO 18968 --- [scheduling-1] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=importVendasJob]] completed with the following parameters: [{'execucao':'{value=1747954950004, type=class java.lang.Long, identifying=true}'}] and the following status: [COMPLETED] in 78ms
+2025-05-22T20:02:40.350-03:00  INFO 18968 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-22T20:02:40.353-03:00  INFO 18968 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-22T20:02:40.359-03:00  INFO 18968 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
