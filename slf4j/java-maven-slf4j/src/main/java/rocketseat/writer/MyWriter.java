@@ -8,6 +8,6 @@ public class MyWriter {
     public void toWrite(){
         //aplicando o debug dos valores ao tentar instanciar e atribuir os valores dos objetos
         logger.debug("definindo a data: 2025-04-01 para o objeto");
-        logger.trace("definindo o valor: 27.75 para o objeto");
+        logger.debug("definindo o valor: 27.75 para o objeto");
     }
 }

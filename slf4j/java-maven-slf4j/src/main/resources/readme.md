@@ -197,3 +197,44 @@ logger.error("Erro ao salvar pedido no banco", exception);
 | WARN  | Algo estranho, mas não quebra                 | ✅                         |
 | ERROR | Erros e exceções                              | ✅                         |
 | FATAL | (via Log4j2 apenas) Erros que exigem shutdown | ✅                         |
+
+### Definindo Nível de Log
+
+Você define os níveis de log no arquivo de configuração da implementação de logging. No nosso caso: log4j2.xml, já que estamos usando Log4j2 como implementação do SLF4J.
+
+📌 Como funciona?
+* Você pode definir o nível de log globalmente (para toda a aplicação)
+* Ou definir níveis por pacote ou por classe específica
+
+🎯 Resumo:
+* Tudo no projeto segue o nível INFO por padrão (via <Root level="info">)
+* No pacote `com.meuprojeto.meupacote`, os logs de `DEBUG` também vão aparecer
+* Na classe `com.meuprojeto.meupacote.MinhaClasse`, até logs de `TRACE` serão exibidos
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- Nível global: mostra apenas INFO ou superior -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+        <!-- Exibe DEBUG para esse pacote específico -->
+        <Logger name="com.meuprojeto.meupacote" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Exibe TRACE para uma classe específica -->
+        <Logger name="com.meuprojeto.meupacote.MinhaClasse" level="trace" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+    </Loggers>
+</Configuration>
+```

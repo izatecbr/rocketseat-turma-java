@@ -13,8 +13,8 @@
         <Logger name="rocketseat.reader" level="trace" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <!-- Exibe DEBUG para esse pacote específico -->
-        <Logger name="rocketseat.writer" level="debug" additivity="false">
+        <!-- xibe TRACE para uma classe específica -->
+        <Logger name="rocketseat.writer.MyWriter" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
     </Loggers>
