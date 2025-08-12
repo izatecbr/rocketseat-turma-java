@@ -188,3 +188,12 @@ logger.error("Erro ao salvar pedido no banco", exception);
 #### (Opcional) 🔴 FATAL (não é suportado diretamente pelo SLF4J)
 * É um nível do Log4j2, usado para erros críticos que exigem parada da aplicação.
 * Como o SLF4J não tem esse nível, geralmente se usa logger.error() mesmo.
+
+| Nível | Quando usar                                   | Mostrar em produção?      |
+| ----- | --------------------------------------------- | ------------------------- |
+| TRACE | Detalhes minuciosos, execuções internas       | ❌                         |
+| DEBUG | Informações úteis para devs                   | ⚠️ (desligado por padrão) |
+| INFO  | Eventos importantes e bem-sucedidos           | ✅                         |
+| WARN  | Algo estranho, mas não quebra                 | ✅                         |
+| ERROR | Erros e exceções                              | ✅                         |
+| FATAL | (via Log4j2 apenas) Erros que exigem shutdown | ✅                         |
