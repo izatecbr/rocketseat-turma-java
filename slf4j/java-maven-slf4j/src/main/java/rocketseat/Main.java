@@ -8,8 +8,10 @@ import org.slf4j.LoggerFactory;
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
-        logger.info("Iniciando a aplicação...");
-        logger.warn("Isso é um aviso.");
-        logger.error("Isso é um erro!");
+        logger.trace("TRACE-Trace da aplicação...");
+        logger.debug("DEBUG-Depurando a aplicação...");
+        logger.info("INFO-Iniciando a aplicação...");
+        logger.warn("WARN-Isso é um aviso.");
+        logger.error("ERROR-Isso é um erro!");
     }
 }
