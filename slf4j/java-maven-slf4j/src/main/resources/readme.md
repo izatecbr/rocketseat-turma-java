@@ -238,3 +238,79 @@ Você define os níveis de log no arquivo de configuração da implementação d
     </Loggers>
 </Configuration>
 ```
+
+
+## Configuração de Logs com Log4j2 em Aplicações Java (Maven)
+
+Ao desenvolver aplicações Java, é essencial manter um bom sistema de **logs** para registrar eventos, erros e informações úteis para depuração e monitoramento. O **Log4j2** é uma das bibliotecas mais populares para essa finalidade.
+
+A seguir, apresentamos duas formas principais de configurar o Log4j2 para gravar logs em **arquivos**:
+
+### ✅ 1. Log em Arquivo com Caminho Relativo
+
+Essa abordagem salva o log em um caminho **relativo ao diretório onde a aplicação está sendo executada**. É útil quando você quer manter os arquivos de log junto com a aplicação, sem depender de caminhos fixos no sistema.
+
+```xml
+<File name="FileLogger" fileName="logs/app.log">
+    <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+</File>
+```
+Ideal para projetos portáteis ou ambientes de desenvolvimento.
+
+* fileName="logs/app.log": grava o log no diretório logs, que será criado no mesmo local onde o .jar da aplicação está sendo executado.
+
+### 📍 2. Log em Arquivo com Caminho Absoluto
+
+Essa alternativa especifica um caminho completo no sistema de arquivos. É útil em ambientes de produção, onde os logs precisam ser salvos em locais padrão do sistema, como `/var/logs` em servidores Linux.
+```xml
+<File name="FileLogger" fileName="logs/app.log">
+    <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+</File>
+```
+
+* fileName="/var/logs/minha-app/app.log": grava os logs diretamente no caminho especificado.
+* Requer permissões adequadas de escrita no sistema.
+
+### 🎯 Dica
+Em ambos os casos, você pode combinar os logs de arquivo com o log no console, bastando adicionar os dois AppenderRef no seu <Root> ou nos loggers específicos:
+```xml
+<Root level="info">
+    <AppenderRef ref="Console" />
+    <AppenderRef ref="FileLogger" />
+</Root>
+```
+
+### Windows
+
+No Windows, o caminho absoluto de arquivos é diferente do Linux. Em vez de usar /var/logs/minha-app/app.log, você usaria um caminho como:
+
+```xml
+<File name="FileLogger" fileName="C:/logs/minha-app/app.log">
+```
+
+✅ Exemplos de caminhos válidos no Windows:
+
+1. Caminho absoluto em C:
+
+```xml
+<File name="FileLogger" fileName="C:/logs/minha-app/app.log">
+```
+* Cria a pasta C:\logs\minha-app se ela não existir.
+* Você precisa ter permissão de escrita nessa pasta.
+
+2. Caminho dentro do diretório do usuário
+
+```xml
+<File name="FileLogger" fileName="${sys:user.home}/logs/app.log">
+```
+* Usa o diretório home do usuário (ex: C:\Users\seunome\logs\app.log).
+* Mais seguro para ambientes com múltiplos usuários.
+
+3. Caminho relativo (ainda funciona no Windows)
+
+```xml
+<File name="FileLogger" fileName="logs/app.log">
+```
+
+* Cria logs/app.log no diretório onde a aplicação for executada.
+* Funciona igual tanto no Windows quanto no Linux.
