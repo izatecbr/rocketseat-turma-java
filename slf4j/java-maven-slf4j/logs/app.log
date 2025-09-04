@@ -1,7 +1,3 @@
-2025-08-13 09:04:30.643 [main] INFO  rocketseat.Main - INFO-Iniciando a aplicação...
-2025-08-13 09:04:30.645 [main] WARN  rocketseat.Main - WARN-Isso é um aviso.
-2025-08-13 09:04:30.645 [main] ERROR rocketseat.Main - ERROR-Isso é um erro!
-2025-08-13 09:04:30.647 [main] TRACE rocketseat.reader.MyReader - Lendo a linha 1 coluna 1 -> 2025-04-01
-2025-08-13 09:04:30.647 [main] TRACE rocketseat.reader.MyReader - Lendo a linha 1 coluna 2 -> 25.75
-2025-08-13 09:04:30.647 [main] DEBUG rocketseat.writer.MyWriter - definindo a data: 2025-04-01 para o objeto
-2025-08-13 09:04:30.647 [main] DEBUG rocketseat.writer.MyWriter - definindo o valor: 27.75 para o objeto
+2025-09-04 19:34:16.806 [main] INFO  rocketseat.Main - INFO-Iniciando a aplicação...
+2025-09-04 19:34:16.811 [main] DEBUG rocketseat.writer.MyWriter - definindo a data: 2025-04-01 para o objeto
+2025-09-04 19:34:16.811 [main] DEBUG rocketseat.writer.MyWriter - definindo o valor: 27.75 para o objeto

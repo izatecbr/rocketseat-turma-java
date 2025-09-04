@@ -13,11 +13,11 @@ public class Main {
         logger.trace("TRACE-Trace da aplicação...");
         logger.debug("DEBUG-Depurando a aplicação...");
         logger.info("INFO-Iniciando a aplicação...");
-        logger.warn("WARN-Isso é um aviso.");
-        logger.error("ERROR-Isso é um erro!");
+        //logger.warn("WARN-Isso é um aviso.");
+        //logger.error("ERROR-Isso é um erro!");
 
-        MyReader reader = new MyReader();
-        reader.toRead();
+        //MyReader reader = new MyReader();
+        //reader.toRead();
 
         MyWriter writer = new MyWriter();
         writer.toWrite();
