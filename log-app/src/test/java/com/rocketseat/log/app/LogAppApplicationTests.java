@@ -1,4 +1,4 @@
-package com.rocketseat.log_app;
+package com.rocketseat.log.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

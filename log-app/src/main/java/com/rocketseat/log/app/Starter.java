@@ -1,4 +1,4 @@
-package com.rocketseat.log_app;
+package com.rocketseat.log.app;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,11 +14,13 @@ public class Starter implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("SPRING RODANDO APOS O SEU CARREGAMENTO STANDALONE");
+        logger.trace("TRACE: Isso e uma mensagem de TRACE");
+        logger.debug("DEBUG: Isso e uma mensagem de DEBUG");
 
-        logger.info("🚀 Aplicação iniciada com sucesso!");
-        logger.debug("🔍 Isso é uma mensagem de DEBUG");
-        logger.warn("⚠️ Isso é um aviso (WARN)");
-        logger.error("💥 Isso é uma mensagem de ERRO");
+        logger.info("INFO: Aplicacao iniciada com sucesso!");
+
+        logger.warn("WARN: Isso e um aviso WARN");
+        logger.error("ERRO: Isso e uma mensagem de ERRO");
 
         try {
             int resultado = 10 / 0;

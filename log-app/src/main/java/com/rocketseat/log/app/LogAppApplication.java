@@ -1,4 +1,4 @@
-package com.rocketseat.log_app;
+package com.rocketseat.log.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
